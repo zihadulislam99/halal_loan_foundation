@@ -1,0 +1,47 @@
+[
+    {
+        "RegistrationDateTime": "",
+        "Photo": "",
+        "Name": "",
+        "UserType": "",
+        "FatherName": "",
+        "HusbandName": "",
+        "MotherName": "",
+        "PresentAddress": {
+            "Village": "",
+            "PostOffice": "",
+            "PoliceStation": "",
+            "District": ""
+        },
+        "PermanentAddress": {
+            "Village": "",
+            "PostOffice": "",
+            "PoliceStation": "",
+            "District": ""
+        },
+        "DateOFBirth": "",
+        "NIDnumber": "",
+        "BirthRegistrationNumber": "",
+        "Occupation": "",
+        "EducationQualification": "",
+        "Email": "",
+        "Phone": "",
+        "Social": {
+            "Facebook": "https://www.facebook.com",
+            "Twitter": "https://www.twitter.com",
+            "Linkedin": "https://www.linkedin.com",
+            "Instagram": "https://www.instagram.com"
+        }
+    },
+    {
+        "TransactionDateTime": "",
+        "UserID": "",
+        "TransactionType": "",
+        "TransactionAmount": "",
+        "TransactionStatus": "",
+        "PaymentMethod": "",
+        "ReferenceID": "",
+        "Notes": ""
+    }
+    
+]
