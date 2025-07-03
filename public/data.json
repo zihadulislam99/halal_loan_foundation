@@ -4,8 +4,7 @@
         "Photo": "",
         "Name": "",
         "UserType": "",
-        "FatherName": "",
-        "HusbandName": "",
+        "FatherOrHusbandName": "",
         "MotherName": "",
         "PresentAddress": {
             "Village": "",
@@ -20,17 +19,16 @@
             "District": ""
         },
         "DateOFBirth": "",
-        "NIDnumber": "",
-        "BirthRegistrationNumber": "",
+        "NIDnumberOrBirthRegistrationNumber": "",
         "Occupation": "",
         "EducationQualification": "",
         "Email": "",
         "Phone": "",
         "Social": {
-            "Facebook": "https://www.facebook.com",
-            "Twitter": "https://www.twitter.com",
-            "Linkedin": "https://www.linkedin.com",
-            "Instagram": "https://www.instagram.com"
+            "Facebook": "",
+            "Twitter": "",
+            "Linkedin": "",
+            "Instagram": ""
         }
     },
     {

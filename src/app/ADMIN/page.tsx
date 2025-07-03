@@ -1,95 +1,92 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import adminLogo from "@/../public/admin_logo.png"
+"use client";
 
-const adminMenu = [
-    {
-        title: "MENU",
-        items: [
-            {
-                icon: "🏠",
-                label: "Home",
-                href: "/ADMIN"
-            },
-            {
-                icon: "👤",
-                label: "Add User",
-                href: "/ADMIN/user"
-            }
-        ]
-    },
-    {
-        title: "OTHER",
-        items: [
-            {
-                icon: "💻",
-                label: "Web control panel",
-                href: "/ADMIN"
-            },
-        ]
-    }
-]
-
-
+import axios from "axios";
+import { useEffect, useState } from "react";
+import AnalyticsChart from "./components/AnalyticsChart";
+import Notification from "./components/Notification";
+import RevenueChart from "./components/RevenueChart";
 
 const ADMIN = () => {
-    return (
-        <div className='h-screen flex'>
-            <div className='w-[14%] md:w-[8%] lg:w-[16%] xl:w-[14%] p-4 bg-red-50'>
-                <Link className='flex items-center justify-center lg:justify-start gap-2' href={"/ADMIN"}>
-                    <Image src={adminLogo} alt='logo' width={32} height={32} />
-                    <span className='hidden lg:block font-extrabold'>Halal Loan Foundation</span>
-                </Link>
-                <hr className='my-4 base:my-4' />
-                {
-                    adminMenu.map(i => (
-                        <div key={i.title}>
-                            <p className='mt-10 mb-2 hidden lg:block font-bold text-gray-500'>{i.title}</p>
-                            {i.items.map(item => (
-                                <Link className='mt-2 flex items-center ms-5 lg:justify-start gap-2' href={item.href}>
-                                    <p className='text-2xl'>{item.icon}</p>
-                                    <p className='text-lg mt-1 hidden lg:block font-semibold'>{item.label}</p>
-                                </Link>
-                            ))}
-                        </div>
-                    ))
-                }
-            </div>
-            <div className='w-[86%] md:w-[92%] lg:w-[84%] xl:w-[86%] p-4 bg-blue-50'>
-                <div className='w-96 mx-auto'>
-                    <form action="" className='flex flex-col'>
-                    <p className='font-bold mb-2'>Member Info</p>
-                        <label className='flex flex-col mb-5'>
-                            <span className="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Member Name</span>
-                            <input type="text" name="name" className="border p-2 outline-none" placeholder="Member Full Name" />
-                        </label>
-                        <label className='flex flex-col mb-5'>
-                            <span className="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Member Type</span>
-                            <input type="text" name="userType" className="border p-2 outline-none" placeholder="Member Type" />
-                        </label>
-                        <label className='flex flex-col mb-5'>
-                            <span className="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Father Name</span>
-                            <input type="text" name="fName" className="border p-2 outline-none" placeholder="Father Name" />
-                        </label>
-                        <label className='flex flex-col mb-5'>
-                            <span className="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Husband Name</span>
-                            <input type="text" name="hName" className="border p-2 outline-none" placeholder="Husband Name" />
-                        </label>
-                        <label className='flex flex-col mb-5'>
-                            <span className="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Mother Name</span>
-                            <input type="text" name="mName" className="border p-2 outline-none" placeholder="Mother Name" />
-                        </label>
-                        <p className='font-bold mb-2'>Permanent Address</p>
-                        <label className='flex flex-col mb-5'>
-                            <span className="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Village</span>
-                            <input type="text" name="village" className="border p-2 outline-none" placeholder="Village" />
-                        </label>
-                    </form>
-                </div>
-            </div>
-        </div>
-    )
-}
+  const [branch, setBranch] = useState([]);
+  const [users, setUsers] = useState([]);
 
-export default ADMIN
+  useEffect(() => {
+    // Replace with your actual API
+    axios.get("/api/getBranch").then((res) => {
+      setBranch(res.data);
+    }).catch((err) => {
+      console.error(err);
+      alert("Failed to load users.");
+    });
+  }, []);
+  useEffect(() => {
+    // Replace with your actual API
+    axios.get("/api/getUser").then((res) => {
+      setUsers(res.data);
+    }).catch((err) => {
+      console.error(err);
+      alert("Failed to load users.");
+    });
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Dashboard Content */}
+      <div className="container mx-auto p-6">
+        <h2 className="text-2xl font-bold mb-6">Admin Dashboard</h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="bg-white rounded-lg p-5 shadow">
+            <h3 className="text-lg font-semibold text-gray-600 mb-1">Total Users</h3>
+            <p className="text-3xl font-bold" style={{ color: "#82ca9d" }}>{users.length}</p>
+          </div>
+
+          <div className="bg-white rounded-lg p-5 shadow">
+            <h3 className="text-lg font-semibold text-gray-600 mb-1">Donation</h3>
+            <p className="text-3xl font-bold" style={{ color: "#8884d8" }}>56</p>
+          </div>
+
+          <div className="bg-white rounded-lg p-5 shadow">
+            <h3 className="text-lg font-semibold text-gray-600 mb-1">Total Branchs</h3>
+            <p className="text-3xl font-bold text-blue-600">{branch.length}</p>
+          </div>
+
+          <a href="" className="bg-white rounded-lg p-5 shadow text-center font-bold">
+            <h3 className="text-xl text-green-600">Donation</h3>
+            <p className="text-3xl text-green-600">✚</p>
+          </a>
+        </div>
+
+        <div className="mt-10">
+          <AnalyticsChart />
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-xl font-semibold mb-4">Notification</h3>
+            <div className="grid grid-cols-1">
+              <RevenueChart />
+            </div>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-4">Notification</h3>
+            <div className="grid grid-cols-1">
+              <Notification />
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <h3 className="text-xl font-semibold mb-4">Recent Activity</h3>
+          <ul className="bg-white p-4 rounded shadow text-gray-700 space-y-2">
+            <li>✅ New user <strong>Rahim</strong> registered</li>
+            <li>🕒 Loan approved for <strong>Karim</strong></li>
+            <li>⚠️ Pending NID verification for <strong>Fatema</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ADMIN;

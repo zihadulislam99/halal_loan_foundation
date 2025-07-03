@@ -5,15 +5,15 @@ export async function POST(request: Request) {
   const body = await request.json();
   const client = await clientPromise;
   const database = client.db("Halal_Loan_Foundation_DB");
-  const collection = database.collection("Users");
+  const collection = database.collection("Branch");
 
   const doc = await collection.findOne(
     {
-      Phone: body.Phone
+      name: body.name
     }
   );
   if (doc) {
-    return Response.json({success: false, error: true, message: "User already exist!"});
+    return Response.json({success: false, error: true, message: "Branch already exist!"});
   }
 
   const result = await collection.insertOne(body);

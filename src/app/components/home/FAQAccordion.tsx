@@ -9,29 +9,29 @@ interface FAQItem {
 
 const faqItems: FAQItem[] = [
   {
-    question: "What's the best thing about Switzerland?",
+    question: "হালাল লোন ফাউন্ডেশন কীভাবে কাজ করে?",
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "হালাল লোন ফাউন্ডেশন একটি সুদমুক্ত ঋণ প্রদানকারী সংস্থা, যা মুসলিমদের জন্য আর্থিক সহায়তা প্রদান করে। সদস্যরা নির্দিষ্ট পরিমাণে দান করে, যার মাধ্যমে সংগঠন ঋণ প্রদান করে এবং সুদ মুক্ত কিস্তির মাধ্যমে ঋণ পরিশোধ করা হয়। আমাদের উদ্দেশ্য ইসলামী আদর্শের প্রচার ও বাস্তবায়ন করা।",
   },
   {
-    question: "How do you make holy water?",
+    question: "সংগঠনের লক্ষ্য ও উদ্দেশ্য কী?",
     answer:
-      "You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut tempora vitae odio inventore fuga aliquam nostrum quod porro. Delectus quia facere id sequi expedita natus.",
+      "হালাল লোন ফাউন্ডেশনের মূল উদ্দেশ্য হলো মুসলিম সমাজে ইসলামী আদর্শের প্রচার এবং অনুসরণ করা। আমরা সুদের বিপদ থেকে রক্ষা করে মুসলিমদের জীবনে ধর্মীয় ও চারিত্রিক উন্নতি আনতে চাই। এছাড়া, আদর্শ সমাজ গঠন ও সুস্থ ও সমৃদ্ধ দেশ গড়ার প্রচেষ্টা চালিয়ে যাচ্ছি।",
   },
   {
-    question: "What do you call someone with no body and no nose?",
+    question: "সংগঠনটির ভবিষ্যৎ পরিকল্পনা কী?",
     answer:
-      "Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.",
+      "সংগঠনের লক্ষ্য প্রতিবছর ঋণগ্রহীতাদের সঞ্চয় এবং ডিপিএস থেকে মূলধন বাড়ানো। এছাড়াও, সংগঠন প্রতি বছর নতুন সদস্য সংগ্রহ করে সংগঠনের মূলধন বৃদ্ধি করবে। মূলধন ১৫ লক্ষ টাকা ছাড়ালে, হালাল ব্যবসার মাধ্যমে আয় বৃদ্ধি করে সুদমুক্ত ঘরের সংখ্যা বাড়ানো হবে।",
   },
   {
-    question: "Why do you never see elephants hiding in trees?",
+    question: "এই ফাউন্ডেশন কত টাকা ঋণ দেয়?",
     answer:
-      "This is just a silly question with no answer.",
+      "হালাল লোন ফাউন্ডেশন প্রতি ঋণগ্রহীতা বা পরিবারের জন্য সর্বোচ্চ ২৫,০০০ টাকা ঋণ প্রদান করে। এই ঋণ সুদমুক্ত এবং শুধুমাত্র নির্দিষ্ট কিস্তিতে পরিশোধযোগ্য।",
   },
   {
-    question: "Why can't you hear a pterodactyl go to the bathroom?",
+    question: "ঋণ পরিশোধের পদ্ধতি কী?",
     answer:
-      "Because the P is silent! (And that's the joke.)",
+      "ঋণগ্রহীতারা সাপ্তাহিক বা মাসিক কিস্তিতে ঋণ পরিশোধ করেন। কিস্তি সংগ্রহের জন্য একজন কালেক্টর নিয়োগ করা হয়, এবং ঋণগ্রহীতা তাদের পরিশোধের জন্য নির্ধারিত পরিমাণ অর্থ দেন। এছাড়া, তারা সঞ্চয় এবং ডিপিএস রাখতে পারেন, যা নিরাপদে সংরক্ষিত থাকবে।",
   },
 ];
 
@@ -47,10 +47,10 @@ const FAQAccordion: React.FC = () => {
       <div className="container px-5 mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-semibold text-gray-800 mb-4">
-            Frequently Asked Questions
+          প্রায়শই জিজ্ঞাসিত প্রশ্ন
           </h1>
           <p className="lg:w-2/3 mx-auto text-lg text-gray-600">
-            Find answers to common questions. For more assistance, feel free to reach out.
+          সচরাচর জিজ্ঞাস্যগুলোর সহজ সমাধান এখানে পাবেন—আর অতিরিক্ত সহায়তার জন্য নির্দ্বিধায় আমাদের সঙ্গে যোগাযোগ করুন।
           </p>
           <div className="w-24 h-1 bg-indigo-600 mt-6 mx-auto rounded-full"></div>
         </div>

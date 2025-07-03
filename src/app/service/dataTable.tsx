@@ -1,73 +1,65 @@
 import React from "react";
 
-const songs = [
-    {
-        id: 1,
-        image: "https://img.daisyui.com/images/profile/demo/1@94.webp",
-        artist: "Dio Lupa",
-        title: "Remaining Reason",
-    },
-    {
-        id: 2,
-        image: "https://img.daisyui.com/images/profile/demo/4@94.webp",
-        artist: "Ellie Beilish",
-        title: "Bears of a Fever",
-    },
-    {
-        id: 3,
-        image: "https://img.daisyui.com/images/profile/demo/3@94.webp",
-        artist: "Sabrino Gardener",
-        title: "Cappuccino",
-    },
+const users = [
+  {
+    id: 1,
+    name: "Dio Lupa",
+    role: "Donor",
+    location: "Dhaka",
+    status: "Active",
+  },
+  {
+    id: 2,
+    name: "Ellie Beilish",
+    role: "Lender",
+    location: "Chittagong",
+    status: "Inactive",
+  },
+  {
+    id: 3,
+    name: "Sabrino Gardener",
+    role: "Member",
+    location: "Sylhet",
+    status: "Active",
+  },
 ];
 
-const dataTable = () => (
-    <div>
-        <ul className="w-full mt-5 rounded-xl shadow-md p-4 bg-slate-50">
-            <li className="pb-2 text-xs mopacity-60 tracking-wide">Most played songs this week</li>
-            {songs.map((song) => (
-                <li className="w-full list-row flex items-center justify-between p-2 border-b border-base-400">
-                    <div className="flex items-center gap-3">
-                        <div className="flex items-center gap-2">
-                            <img className="w-10 rounded-full object-cover " src={"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?fm=jpg"} alt={song.artist} />
-                            <div>
-                                <div>{song.artist}</div>
-                                <div className="text-xs uppercase font-semibold opacity-60">{song.title}</div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col px-96">
-                            <div>{song.artist}</div>
-                            <div className="text-xs uppercase font-semibold opacity-60">{song.title}</div>
-                        </div>
-                    </div>
-                    <div className="flex gap-2">
-                        <button className="btn btn-square btn-ghost">
-                            <svg
-                                className="size-[1.2em]"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                            >
-                                <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor">
-                                    <path d="M6 3L20 12 6 21 6 3z"></path>
-                                </g>
-                            </svg>
-                        </button>
-                        <button className="btn btn-square btn-ghost">
-                            <svg
-                                className="size-[1.2em]"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                            >
-                                <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor">
-                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
-                                </g>
-                            </svg>
-                        </button>
-                    </div>
-                </li>
-            ))}
-        </ul>
+export default function UserDataTable() {
+  return (
+    <div className="w-full overflow-x-auto bg-white rounded-2xl shadow-md p-6">
+      <h2 className="text-xl font-bold mb-4 text-gray-800 text-center">User List</h2>
+      <table className="w-full table-auto border-collapse text-sm">
+        <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
+          <tr>
+            <th className="text-left py-3 px-4">#</th>
+            <th className="text-left py-3 px-4">Name</th>
+            <th className="text-left py-3 px-4">Role</th>
+            <th className="text-left py-3 px-4">Location</th>
+            <th className="text-left py-3 px-4">Status</th>
+          </tr>
+        </thead>
+        <tbody className="text-gray-700">
+          {users.map((user, index) => (
+            <tr key={user.id} className="border-b hover:bg-gray-50 transition">
+              <td className="py-3 px-4 font-medium">{index + 1}</td>
+              <td className="py-3 px-4">{user.name}</td>
+              <td className="py-3 px-4">{user.role}</td>
+              <td className="py-3 px-4">{user.location}</td>
+              <td className="py-3 px-4">
+                <span
+                  className={`inline-block px-2 py-1 text-xs rounded-full font-semibold ${
+                    user.status === "Active"
+                      ? "bg-green-100 text-green-700"
+                      : "bg-red-100 text-red-600"
+                  }`}
+                >
+                  {user.status}
+                </span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-);
-
-export default dataTable;
+  );
+}

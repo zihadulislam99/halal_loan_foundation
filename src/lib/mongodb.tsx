@@ -2,7 +2,7 @@ import { MongoClient, MongoClientOptions } from 'mongodb';
 
 const uri: string = process.env.MONGODB_URI || '';
 if (!uri) {
-  throw new Error('Add Mongo URI to .env');
+  throw new Error('Add Mongo URI to .env (MONGODB_URI="")');
 }
 
 // You can still specify other options if needed
